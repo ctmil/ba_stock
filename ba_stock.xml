@@ -2,9 +2,9 @@
 <openerp>
   <data>
 
-        <record id="view_as_stock_quant_filter" model="ir.ui.view">
-            <field name="name">as.stock.quant.filter</field>
-            <field name="model">as.stock.quant</field>
+        <record id="view_ba_stock_quant_filter" model="ir.ui.view">
+            <field name="name">ba.stock.quant.filter</field>
+            <field name="model">ba.stock.quant</field>
             <field name="arch" type="xml">
                 <search string="Search Inventory">
                     <field name="company_id" groups="base.group_multi_company"/>
@@ -20,9 +20,9 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="as_stock_quant_tree">
-            <field name="name">as.stock.quant.tree</field>
-            <field name="model">as.stock.quant</field>
+        <record model="ir.ui.view" id="ba_stock_quant_tree">
+            <field name="name">ba.stock.quant.tree</field>
+            <field name="model">ba.stock.quant</field>
             <field name="arch" type="xml">
 		<tree string="Mensajes" >
 			<field name="company_id" />
@@ -33,24 +33,24 @@
             </field>
         </record>
 	  
-        <record id="as_stock_quant_action" model="ir.actions.act_window">
+        <record id="ba_stock_quant_action" model="ir.actions.act_window">
             <field name="name">Consulta Stock</field>
-            <field name="res_model">as.stock.quant</field>
+            <field name="res_model">ba.stock.quant</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <!-- field name="domain">['|',('author_id', '=', user.partner_id.id)]</field -->
-            <field name="search_view_id" ref="view_as_stock_quant_filter"/>
+            <field name="search_view_id" ref="view_ba_stock_quant_filter"/>
         </record>
 
 
-        <menuitem id="menuitem_as_stock_quant"
+        <menuitem id="menuitem_ba_stock_quant"
                 parent="stock.menu_stock_inventory_control"
-		action="as_stock_quant_action"
+		action="ba_stock_quant_action"
                 name="Consulta Stock" />
 
-        <record id="view_as_stock_move_filter" model="ir.ui.view">
-            <field name="name">as.stock.move.filter</field>
-            <field name="model">as.stock.move</field>
+        <record id="view_ba_stock_move_filter" model="ir.ui.view">
+            <field name="name">ba.stock.move.filter</field>
+            <field name="model">ba.stock.move</field>
             <field name="arch" type="xml">
                 <search string="Search Moves">
                     <field name="company_id" groups="base.group_multi_company"/>
@@ -68,9 +68,9 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="as_stock_move_tree">
-            <field name="name">as.stock.move.tree</field>
-            <field name="model">as.stock.move</field>
+        <record model="ir.ui.view" id="ba_stock_move_tree">
+            <field name="name">ba.stock.move.tree</field>
+            <field name="model">ba.stock.move</field>
             <field name="arch" type="xml">
 		<tree string="Movimientos" >
 			<field name="company_id" />
@@ -83,22 +83,22 @@
             </field>
         </record>
 
-        <record id="as_stock_move_action" model="ir.actions.act_window">
+        <record id="ba_stock_move_action" model="ir.actions.act_window">
             <field name="name">Consulta Movimientos</field>
-            <field name="res_model">as.stock.move</field>
+            <field name="res_model">ba.stock.move</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <!-- field name="domain">['|',('author_id', '=', user.partner_id.id)]</field -->
-            <field name="search_view_id" ref="view_as_stock_move_filter"/>
+            <field name="search_view_id" ref="view_ba_stock_move_filter"/>
         </record>
 
-        <menuitem id="menuitem_as_stock_move"
+        <menuitem id="menuitem_ba_stock_move"
                 parent="stock.menu_stock_inventory_control"
-		action="as_stock_move_action"
+		action="ba_stock_move_action"
                 name="Consulta Movimientos" />
 
-        <!-- record model="ir.ui.view" id="as_stock_view_inventory_form">
-            <field name="name">as.stock.view.inventory.form</field>
+        <!-- record model="ir.ui.view" id="ba.stock_view_inventory_form">
+            <field name="name">ba.stock.view.inventory.form</field>
             <field name="model">stock.inventory</field>
 	    <field name="inherit_id" ref="stock.view_inventory_form" />
             <field name="arch" type="xml">

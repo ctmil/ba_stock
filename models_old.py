@@ -11,7 +11,6 @@ import email
 from openerp.osv import fields, osv
 from openerp import tools, api, SUPERUSER_ID
 from openerp.tools.translate import _
-from openerp.exceptions import UserError
 
 _logger = logging.getLogger(__name__)
 
