@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+        <record id="view_as_stock_quant_filter" model="ir.ui.view">
+            <field name="name">as.stock.quant.filter</field>
+            <field name="model">as.stock.quant</field>
+            <field name="arch" type="xml">
+                <search string="Search Inventory">
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="product_id" />
+                    <field name="location_id" />
+                    <group expand="0" string="Group By">
+                        <filter string="Ubicación" domain="[]" context="{'group_by':'location_id'}" help="Physical Inventories by Location"/>
+                        <filter string="Company" domain="[]" context="{'group_by':'company_id'}" help="Physical Inventories by Company"/>
+                        <filter string="Product" domain="[]" context="{'group_by':'product_id'}" help="Physical Inventories by Product"/>
+                    </group>
+                </search>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="as_stock_quant_tree">
+            <field name="name">as.stock.quant.tree</field>
+            <field name="model">as.stock.quant</field>
+            <field name="arch" type="xml">
+		<tree string="Mensajes" >
+			<field name="company_id" />
+			<field name="location_id" />
+			<field name="product_id" />
+			<field name="qty" />
+		</tree>
+            </field>
+        </record>
+	  
+        <record id="as_stock_quant_action" model="ir.actions.act_window">
+            <field name="name">Consulta Stock</field>
+            <field name="res_model">as.stock.quant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!-- field name="domain">['|',('author_id', '=', user.partner_id.id)]</field -->
+            <field name="search_view_id" ref="view_as_stock_quant_filter"/>
+        </record>
+
+
+        <menuitem id="menuitem_as_stock_quant"
+                parent="stock.menu_stock_inventory_control"
+		action="as_stock_quant_action"
+                name="Consulta Stock" />
+
+        <record id="view_as_stock_move_filter" model="ir.ui.view">
+            <field name="name">as.stock.move.filter</field>
+            <field name="model">as.stock.move</field>
+            <field name="arch" type="xml">
+                <search string="Search Moves">
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="date" />
+                    <field name="picking_id" />
+                    <field name="product_id" />
+                    <field name="loc_id" />
+                    <group expand="0" string="Group By">
+                        <filter string="Ubicación" domain="[]" context="{'group_by':'loc_id'}" help="Physical Inventories by Location"/>
+                        <filter string="Company" domain="[]" context="{'group_by':'company_id'}" help="Physical Inventories by Company"/>
+                        <filter string="Product" domain="[]" context="{'group_by':'product_id'}" help="Physical Inventories by Product"/>
+                    </group>
+                </search>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="as_stock_move_tree">
+            <field name="name">as.stock.move.tree</field>
+            <field name="model">as.stock.move</field>
+            <field name="arch" type="xml">
+		<tree string="Movimientos" >
+			<field name="company_id" />
+			<field name="picking_id" />
+			<field name="date" />
+			<field name="loc_id" />
+			<field name="product_id" />
+			<field name="cantidad" />
+		</tree>
+            </field>
+        </record>
+
+        <record id="as_stock_move_action" model="ir.actions.act_window">
+            <field name="name">Consulta Movimientos</field>
+            <field name="res_model">as.stock.move</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!-- field name="domain">['|',('author_id', '=', user.partner_id.id)]</field -->
+            <field name="search_view_id" ref="view_as_stock_move_filter"/>
+        </record>
+
+        <menuitem id="menuitem_as_stock_move"
+                parent="stock.menu_stock_inventory_control"
+		action="as_stock_move_action"
+                name="Consulta Movimientos" />
+
+        <!-- record model="ir.ui.view" id="as_stock_view_inventory_form">
+            <field name="name">as.stock.view.inventory.form</field>
+            <field name="model">stock.inventory</field>
+	    <field name="inherit_id" ref="stock.view_inventory_form" />
+            <field name="arch" type="xml">
+		<button name="action_done" position="attributes">
+			<attribute name="groups">stock.group_stock_user</attribute>
+		</button>
+	    </field>
+	</record -->
+
+   </data>
+</openerp>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_user_ba_stock_move,ba_stock_move inventory_stock_user,ba_stock.model_ba_stock_move,stock.group_stock_user,1,1,1,1
+access_stock_user_ba_stock_quant,ba_stock_quant inventory_stock_user,ba_stock.model_ba_stock_quant,stock.group_stock_user,1,1,1,1
